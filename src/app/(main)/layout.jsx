@@ -1,4 +1,5 @@
 
+import Footer from '@/components/footer/Footer';
 import HeroBanner from '@/components/headers/HeroBanner';
 import NavBar from '@/components/headers/NavBar';
 import React from 'react';
@@ -13,6 +14,10 @@ const MainLayoyt = ({ children }) => {
             </div>
          
             {children}
+
+            <div>
+                <Footer></Footer>
+            </div>
         </div>
     );
 };
