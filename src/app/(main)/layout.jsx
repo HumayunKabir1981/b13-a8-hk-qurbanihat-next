@@ -8,7 +8,7 @@ const MainLayoyt = ({ children }) => {
     return (
         <div>
           
-             <div className='mt-20'>
+             <div>
                <NavBar></NavBar>
                <HeroBanner></HeroBanner>
             </div>

@@ -1,11 +1,19 @@
+"use client"
 import Link from 'next/link';
 import React from 'react';
 import logo from '@/asset/logo.png'
 import Image from 'next/image';
+import avater from '@/asset/user.png'
+import { authClient } from '@/lib/auth-client';
+import NavLink from './NavLink';
 
 const NavBar = () => {
+    const { data: session, isPending } = authClient.useSession()
+
+    const user = session?.user;
+    console.log("session user", user);
     return (
-        <div className="navbar bg-base-100 shadow-sm">
+        <div className="navbar bg-base-300 shadow-sm px-10">
             <div className="navbar-start">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -14,31 +22,51 @@ const NavBar = () => {
                     <ul
                         tabIndex="-1"
                         className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-                        <li><Link href="/">Home</Link> </li>
-
-                        <li><Link href="/">All Animal</Link> </li>
+                        <li><NavLink href="/">Home</NavLink></li>
+                        <li><NavLink href="/animals">All Animal</NavLink></li>
                     </ul>
                 </div>
 
-                <Link href="/">  <Image
-                    src={logo}
-                    alt="logo"
-                    width={80}
-                    height={50}
-                /></Link>
+                <div >
+                    <Link href="/">  <Image
+                        src={logo}
+                        alt="logo"
+                        width={100}
+                        height={50}
+                         className="rounded-full object-cover"
+                    /></Link>
+                </div>
 
             </div>
+
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
-                    <li><Link href="/">Home</Link> </li>
 
-                    <li><Link href="/animals">All Animal</Link> </li>
+                    <li><NavLink href="/">Home</NavLink></li>
+                    <li><NavLink href="/animals">All Animal</NavLink></li>
+
+
                 </ul>
             </div>
-            <div className="navbar-end">
-                <Link href="/login"><button className='btn btn-primary'>Login</button></Link>
-                
+
+            <div className="navbar-end flex  items-center gap-5">
+                {isPending ? (
+                    "Loading...."
+                ) : user ? (
+                    <div className='flex items-center gap-3'>
+                        <h2 className='text-xl font-bold flex items-center'>Hello, {user.name}</h2>
+                        <Image src={user?.image || avater} height={50} width={50} alt='avater' className='rounded-full' />
+                        <button className='btn btn-primary' onClick={async () => await authClient.signOut()}>Logout</button>
+                    </div>
+
+                ) : (
+                    <Link href="/login"> <button className='btn btn-primary'>Login</button> </Link>
+                )
+                }
+
             </div>
+
+
         </div>
     );
 };
