@@ -13,7 +13,7 @@ const NavBar = () => {
     const user = session?.user;
     console.log("session user", user);
     return (
-        <div className="navbar bg-base-300 shadow-sm px-10">
+        <div className="navbar bg-green-900 text-white sticky top-0 z-50 shadow-md px-10">
             <div className="navbar-start">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -21,7 +21,7 @@ const NavBar = () => {
                     </div>
                     <ul
                         tabIndex="-1"
-                        className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+                        className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow text-xl">
                         <li><NavLink href="/">Home</NavLink></li>
                         <li><NavLink href="/animals">All Animal</NavLink></li>
                     </ul>
@@ -31,8 +31,8 @@ const NavBar = () => {
                     <Link href="/">  <Image
                         src={logo}
                         alt="logo"
-                        width={100}
-                        height={50}
+                        width={250}
+                        height={150}
                          className="rounded-full object-cover"
                     /></Link>
                 </div>
@@ -40,7 +40,7 @@ const NavBar = () => {
             </div>
 
             <div className="navbar-center hidden lg:flex">
-                <ul className="menu menu-horizontal px-1">
+                <ul className="menu menu-horizontal px-1 text-xl">
 
                     <li><NavLink href="/">Home</NavLink></li>
                     <li><NavLink href="/animals">All Animal</NavLink></li>
