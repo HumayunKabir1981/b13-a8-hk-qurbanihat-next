@@ -13,7 +13,7 @@ const NavBar = () => {
     const user = session?.user;
     console.log("session user", user);
     return (
-        <div className="navbar bg-green-900 text-white sticky top-0 z-50 shadow-md px-10">
+        <div className="navbar bg-slate-200  sticky top-0 z-50 shadow-md px-10">
             <div className="navbar-start">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -33,7 +33,7 @@ const NavBar = () => {
                         alt="logo"
                         width={250}
                         height={150}
-                         className="rounded-full object-cover"
+                        className="rounded-full object-cover"
                     /></Link>
                 </div>
 
@@ -60,7 +60,13 @@ const NavBar = () => {
                     </div>
 
                 ) : (
-                    <Link href="/login"> <button className='btn btn-primary'>Login</button> </Link>
+
+                    <div>
+                        <Link href="/login"> <button className='btn btn-soft btn-accent'>Login</button> </Link>
+
+                        <Link href="/register"> <button className='btn btn-soft btn-accent'>Register</button> </Link>
+                    </div>
+
                 )
                 }
 

@@ -1,23 +1,28 @@
+ 
+ import BookingForm from "@/components/BookingForm";
+import BookingSection from "@/components/BookingSection";
 import Image from "next/image";
 import { FaBangladeshiTakaSign } from "react-icons/fa6";
 
 export default async function AnimalDetailPage({ params }) {
-    const { id } = await params;
+  const { id } = await params;
 
-    const res = await fetch("http://localhost:3000/animals.json");
-    const animals = await res.json();
+  const res = await fetch("http://localhost:3000/animals.json");
+  const animals = await res.json();
 
-    const animal = animals.find(
-        (a) => String(a.id) === String(id)
-    );
+  const animal = animals.find(
+    (a) => String(a.id) === String(id)
+  );
 
-    if (!animal) {
-        return <div>Animal not found</div>;
-    }
+  if (!animal) {
+    return <div>Animal not found</div>;
+  }
 
-    return (
 
-        <div className="max-w-6xl mx-auto p-6">
+
+  return (
+
+    <div className="max-w-6xl mx-auto p-6">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10 bg-white shadow-lg rounded-2xl p-6">
 
         {/* LEFT SIDE IMAGE */}
@@ -76,21 +81,21 @@ export default async function AnimalDetailPage({ params }) {
 
           </div>
 
-          {/* PRICE BOX */}
+
           <div className="flex items-center gap-2 text-2xl font-bold text-green-600 mt-3">
             <FaBangladeshiTakaSign />
             {animal.price}
           </div>
 
-          {/* BUTTON */}
-          <button className="btn btn-primary w-full mt-4">
-            Book This Animal
-          </button>
+
+          <BookingSection></BookingSection>
+
+         
 
         </div>
       </div>
     </div>
 
 
-    );
+  );
 }

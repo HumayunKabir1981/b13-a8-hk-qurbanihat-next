@@ -9,11 +9,11 @@ const AnimalsPage = () => {
 
     const [animals, setAnimals] = useState([]);
 
-    // 🔹 actual filter
+  
     const [minPrice, setMinPrice] = useState(0);
     const [maxPrice, setMaxPrice] = useState(1000000);
 
-    // 🔹 input values
+  
     const [inputMin, setInputMin] = useState('');
     const [inputMax, setInputMax] = useState('');
 
@@ -23,7 +23,7 @@ const AnimalsPage = () => {
             .then(data => setAnimals(data));
     }, []);
 
-    // 🔥 button click filter apply
+   
     const handleSearch = () => {
         setMinPrice(Number(inputMin) || 0);
         setMaxPrice(Number(inputMax) || 1000000);
@@ -38,7 +38,7 @@ const AnimalsPage = () => {
 
             <h1 className="text-4xl font-bold py-6">All Animals</h1>
 
-            {/* 🔍 Filter UI */}
+           
             <div className="flex gap-4 mb-6 items-center">
                 <input
                     type="number"
@@ -64,7 +64,7 @@ const AnimalsPage = () => {
                 </button>
             </div>
 
-            {/* 🐄 Animals */}
+          
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 place-items-center pb-10">
                 {
                     filteredAnimals.map(animal =>
