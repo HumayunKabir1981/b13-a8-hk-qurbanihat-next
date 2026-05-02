@@ -56,7 +56,10 @@ const NavBar = () => {
                     <div className='flex items-center gap-3'>
                         <h2 className='text-xl font-bold flex items-center'>Hello, {user.name}</h2>
                         <Image src={user?.image || avater} height={50} width={50} alt='avater' className='rounded-full' />
-                        <button className='btn btn-primary' onClick={async () => await authClient.signOut()}>Logout</button>
+                        <Link href="/myprofile" className="text-xs btn btn-soft btn-primary">
+                            My Profile
+                        </Link>
+                        <button className='btn btn-soft btn-primary' onClick={async () => await authClient.signOut()}>Logout</button>
                     </div>
 
                 ) : (
