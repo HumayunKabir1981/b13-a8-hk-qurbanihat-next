@@ -23,10 +23,22 @@ const LoginPage = () => {
             callbackURL: "/",
         });
         console.log(res, error);
+    }
 
+    const handleGoogleSignin = async() => {
+        const data = await authClient.signIn.social({
+            provider: "google",
+        });
     }
     return (
-        <div className='container mx-auto bg-slate-100 flex items-center justify-center h-[80vh]'>
+        <div className='container mx-auto bg-slate-100 flex flex-col items-center justify-center h-[80vh]'>
+
+            <div>
+                <h1 className='text-4xl font-extrabold text-green-900 py-10'>QurbaniHat</h1>
+                <button onClick={handleGoogleSignin} className='btn text-green-300'>Login with google</button>
+            </div>
+
+
             <div className='bg-white'>
                 <h1 className='text-3xl font-bold mb-5'>Login Your Account</h1>
 
@@ -47,15 +59,15 @@ const LoginPage = () => {
                             {...register("password", { required: "password is requered" })}
                             placeholder="Type here Password" />
                         <span className='absolute right-1 top-5 cursor-pointer' onClick={() => setIsShowPassword(!isShowPassword)}>
-                            {isShowPassword?<FaEye /> :<FaEyeLowVision />}
-                            
+                            {isShowPassword ? <FaEye /> : <FaEyeLowVision />}
+
                         </span>
                         {errors.password && <p>{errors.password.message}</p>}
                     </fieldset>
 
                     <button className='btn btn-neutral w-full'>Login</button>
                 </form>
-                <p> Don't have account? <Link href='/registar'>Register</Link></p>
+                <p className='mt-5'> Don't have account? <Link href='/registar'>Register</Link></p>
             </div>
 
         </div>

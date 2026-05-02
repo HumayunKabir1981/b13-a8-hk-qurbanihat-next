@@ -59,7 +59,12 @@ const NavBar = () => {
                         <Link href="/myprofile" className="text-xs btn btn-soft btn-primary">
                             My Profile
                         </Link>
-                        <button className='btn btn-soft btn-primary' onClick={async () => await authClient.signOut()}>Logout</button>
+                        <Link href="/">
+                            <button className='btn btn-soft btn-primary' onClick={async () => await authClient.signOut()}>Logout</button>
+                        </Link>
+                         
+                      
+                       
                     </div>
 
                 ) : (
