@@ -5,25 +5,28 @@ import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 import { FaBangladeshiTakaSign } from "react-icons/fa6";
 
+
 const AnimalsPage = () => {
 
     const [animals, setAnimals] = useState([]);
+    const [loading, setLoading] = useState(true);
 
-  
     const [minPrice, setMinPrice] = useState(0);
     const [maxPrice, setMaxPrice] = useState(1000000);
 
-  
+
     const [inputMin, setInputMin] = useState('');
     const [inputMax, setInputMax] = useState('');
 
     useEffect(() => {
+      
         fetch('/animals.json')
             .then(res => res.json())
             .then(data => setAnimals(data));
+            
     }, []);
 
-   
+
     const handleSearch = () => {
         setMinPrice(Number(inputMin) || 0);
         setMaxPrice(Number(inputMax) || 1000000);
@@ -38,7 +41,7 @@ const AnimalsPage = () => {
 
             <h1 className="text-4xl font-bold py-6">All Animals</h1>
 
-           
+
             <div className="flex gap-4 mb-6 items-center">
                 <input
                     type="number"
@@ -64,7 +67,7 @@ const AnimalsPage = () => {
                 </button>
             </div>
 
-          
+
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 place-items-center pb-10">
                 {
                     filteredAnimals.map(animal =>

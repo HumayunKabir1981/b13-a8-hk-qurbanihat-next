@@ -25,7 +25,7 @@ export default async function AnimalDetailPage({ params }) {
     <div className="max-w-6xl mx-auto p-6">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10 bg-white shadow-lg rounded-2xl p-6">
 
-        {/* LEFT SIDE IMAGE */}
+        
         <div className="flex items-center justify-center">
           <Image
             src={animal.image}
@@ -36,7 +36,7 @@ export default async function AnimalDetailPage({ params }) {
           />
         </div>
 
-        {/* RIGHT SIDE INFO */}
+        
         <div className="flex flex-col justify-center space-y-4">
 
           <h1 className="text-3xl font-bold text-gray-800">

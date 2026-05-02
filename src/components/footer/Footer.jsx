@@ -4,67 +4,76 @@ import { FaXTwitter } from 'react-icons/fa6';
 import { IoLogoInstagram } from 'react-icons/io5';
 
 const Footer = () => {
-    return (
-       <div className="w-full bg-[#244d3f]">
+  return (
+    <footer className="w-full bg-amber-50 ">
 
-            <div className=' w-full text-center px-36  '>
+      <div className="max-w-7xl mx-auto px-6 lg:px-20 py-14">
 
-                <div className=' text-white grid grid-cols-1 items-center justify-center gap-8 py-16'>
+        {/* Top Section */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
 
+          {/* About */}
+          <div>
+            <h2 className="text-3xl font-bold mb-4">QurbaniHat</h2>
+            <p className="text-sm  leading-relaxed">
+              A modern livestock marketplace where users can explore animals for Qurbani such as cows and goats.
+              Users can view details and place a booking after authentication.
+            </p>
+          </div>
 
-                    <div className="col-span-2">
-                        <h2 className="text-6xl  font-bold mb-3">QurbaniHat</h2>
-                        <p>
-                            A modern livestock marketplace where users can explore animals for Qurbani such as cows and goats. Users can view details and place a booking after authentication.
-                        </p>
-                    </div>
+          {/* Contact */}
+          <div>
+            <h2 className="text-xl font-semibold mb-4">Contact Info</h2>
 
+            <div className="space-y-2 text-sm ">
+              <p> Dhaka, Bangladesh</p>
+              <p> +880 1234-556677</p>
+              <p> support@qurbanihat.com</p>
+            </div>
+          </div>
 
-                    <div className="flex flex-col gap-5">
-                        <h2 className="text-2xl">Social Links</h2>
+          {/* Social */}
+          <div>
+            <h2 className="text-xl font-semibold mb-4">Follow Us</h2>
 
-                        <div className="flex gap-3 text-center justify-center">
+            <div className="flex gap-3">
 
-                            <div className="rounded-full bg-white h-10 w-10 flex justify-center items-center">
-                                <IoLogoInstagram className="text-xl text-black" />
-                            </div>
-                            <div className="rounded-full bg-white h-10 w-10 flex justify-center items-center">
-                                <FaFacebookSquare className="text-xl text-black" />
-                            </div>
-                            <div className="rounded-full bg-white h-10 w-10 flex justify-center items-center">
-                                <FaXTwitter className="text-xl text-black" />
-                            </div>
+              <a className="h-10 w-10 rounded-full flex items-center justify-center text-black hover:scale-110 transition">
+                <IoLogoInstagram />
+              </a>
 
-                        </div>
+              <a className="h-10 w-10 rounded-full flex items-center justify-center text-black hover:scale-110 transition">
+                <FaFacebookSquare />
+              </a>
 
-                    </div>
-
-                </div>
-                <div className="h-[1px] w-full bg-green-800 my-4"></div>
-
-                <div className="text-white flex flex-col md:flex-row justify-between py-5">
-
-                    <h1 >© 2026 QurbaniHat. All rights reserved.</h1>
-
-
-                    <div className="flex gap-5">
-                        <h4>Privacy Policy </h4>
-                        <h4>Terms of Service   </h4>
-                        <h4>Cookies </h4>
-                    </div>
-                </div>
-
+              <a className="h-10 w-10  rounded-full flex items-center justify-center text-black hover:scale-110 transition">
+                <FaXTwitter />
+              </a>
 
             </div>
-
-
-
-
-
-
+          </div>
 
         </div>
-    );
+
+        {/* Divider */}
+        <div className="h-[1px]  my-8"></div>
+
+        {/* Bottom */}
+        <div className="flex flex-col md:flex-row justify-between text-sm  gap-3">
+
+          <p>© 2026 QurbaniHat. All rights reserved.</p>
+
+          <div className="flex gap-5">
+            <span className=" cursor-pointer">Privacy Policy</span>
+            <span className=" cursor-pointer">Terms</span>
+            <span className=" cursor-pointer">Cookies</span>
+          </div>
+
+        </div>
+
+      </div>
+    </footer>
+  );
 };
 
 export default Footer;

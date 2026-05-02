@@ -13,7 +13,7 @@ const NavBar = () => {
     const user = session?.user;
     console.log("session user", user);
     return (
-        <div className="navbar bg-slate-200  sticky top-0 z-50 shadow-md px-10">
+        <div className="navbar bg-amber-50  sticky top-0 z-50 shadow-md px-10">
             <div className="navbar-start">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -62,9 +62,9 @@ const NavBar = () => {
                 ) : (
 
                     <div>
-                        <Link href="/login"> <button className='btn btn-soft btn-accent'>Login</button> </Link>
+                        <Link href="/login"> <button className='btn btn-soft btn-primary'>Login</button> </Link>
 
-                        <Link href="/register"> <button className='btn btn-soft btn-accent'>Register</button> </Link>
+                        <Link href="/register"> <button className='btn btn-soft btn-primary'>Register</button> </Link>
                     </div>
 
                 )

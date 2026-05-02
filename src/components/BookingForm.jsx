@@ -1,19 +1,21 @@
 "use client";
 
 import { useState } from "react";
+import { toast } from 'react-toastify';
 
 const BookingForm = () => {
-  const [showToast, setShowToast] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    e.target.reset();
-    setShowToast(true);
 
-    setTimeout(() => {
-      setShowToast(false);
-    }, 3000);
+    toast.success("Booking Confirmed Successfully!", {
+      position: "top-right",
+      autoClose: 3000,
+    });
+
+
+    e.target.reset();
   };
 
   return (
@@ -32,23 +34,7 @@ const BookingForm = () => {
         </button>
       </form>
 
-      <div
-        className={`fixed top-100 right-5 z-50 transform transition-all duration-500 
-        ${showToast ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-5 pointer-events-none"}`}
-      >
-        <div className="bg-green-500 text-white px-5 py-3 rounded-xl shadow-lg flex items-center gap-3">
-
-          {/* ICON */}
-          <span className="text-xl">✅</span>
-
-          <div>
-            <p className="font-semibold">Booking Confirmed</p>
-            <p className="text-sm opacity-80">We will contact you soon</p>
-          </div>
-
-        </div>
-      </div>
-
+     
     </div>
   );
 };

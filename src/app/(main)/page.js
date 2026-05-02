@@ -1,6 +1,9 @@
+import CowAnimation from "@/components/animations/CowAnimation";
+import GrassAnimation from "@/components/GrassAnimation";
 import Image from "next/image";
 import Link from "next/link";
 import { FaBangladeshiTakaSign } from "react-icons/fa6";
+
 
 export default async function Home() {
   const res = await fetch('http://localhost:3000/animals.json');
@@ -9,17 +12,17 @@ export default async function Home() {
     <div className="flex flex-col items-center justify-center container mx-auto bg-slate-200">
 
       <div className="text-center my-5 px-5">
-          <h1 className="text-5xl font-bold mb-4"> Biggest Online  Qurbani Hat 2026</h1>
-          <p className="mb-6">
-            Buy healthy cows & goats easily from home
-          </p>
+        <h1 className="text-5xl font-bold mb-4"> Biggest Online  Qurbani Hat 2026</h1>
+        <p className="mb-6">
+          Buy healthy cows & goats easily from home
+        </p>
 
-          <Link href="/animals">
-            <button className="btn btn-soft btn-secondary text-2xl rounded-4xl px-6">
-              Browse All Animals
-            </button>
-          </Link>
-        </div>
+        <Link href="/animals">
+          <button className="btn btn-soft btn-secondary text-2xl rounded-4xl px-6">
+            Browse All Animals
+          </button>
+        </Link>
+      </div>
 
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 ">
@@ -57,10 +60,16 @@ export default async function Home() {
 
         <div className="col-span-1 ">
 
-          
-         
+          <div className="relative">
+            <CowAnimation></CowAnimation>
+            <div className=" w-30 h-20 absolute right-45 top-50 ">
+              <GrassAnimation></GrassAnimation>
+            </div>
 
-          
+          </div>
+
+
+
           <div className="py-10">
             <div className="max-w-6xl mx-auto px-4">
 
@@ -83,7 +92,7 @@ export default async function Home() {
                 <div className="bg-white p-5 rounded-xl shadow text-center">
                   <h3 className="font-semibold">Good Weight</h3>
                   <p className="text-sm text-gray-500"> Select animals with proper weight for better meat quality</p>
-                </div>               
+                </div>
 
               </div>
 
@@ -128,7 +137,7 @@ export default async function Home() {
 
       </div>
 
-  
+
 
 
     </div >
