@@ -1,36 +1,172 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🐄 QurbaniHat – Livestock Booking Platform
 
-## Getting Started
+## 📌 Project Overview
 
-First, run the development server:
+**QurbaniHat** is a modern online livestock marketplace where users can explore animals (cows, goats, etc.) for Qurbani. Users can view detailed information, filter animals by price, and book animals after authentication.
+
+---
+
+## 🌐 Live URL
+
+👉 https://your-live-link.com
+
+---
+
+## 🎯 Purpose
+
+The goal of this project is to provide a simple and user-friendly platform for buying Qurbani animals online. It helps users:
+
+* Browse available animals
+* View detailed information
+* Make booking decisions easily from home
+
+---
+
+## ✨ Key Features
+
+### 🔐 Authentication
+
+* Email & Password login/register
+* Google login integration
+* Protected routes using Next.js Proxy
+* Session-based authentication
+
+### 🐄 Animal Listing
+
+* Display all animals in a responsive grid
+* Dynamic routing for animal details page
+* Clean UI with cards
+
+### 🔍 Filtering System
+
+* Filter animals by price range
+* User-friendly search inputs
+
+### 👤 User Profile
+
+* View logged-in user information (name, email, photo)
+* Update profile information (name & image)
+
+### 🚫 Route Protection
+
+* Private routes:
+
+  * Animal Details page
+  * My Profile page
+* Redirect to login if not authenticated
+
+### ⚡ Performance & UX
+
+* Server-side data fetching (Next.js App Router)
+* Loading UI using `loading.js`
+* Responsive design (mobile + desktop)
+
+---
+
+## 🛠️ Technologies Used
+
+### 🧩 Framework & Library
+
+* Next.js 16 (App Router)
+* React
+* Tailwind CSS
+* DaisyUI
+
+### 🔐 Authentication
+
+* better-auth
+* MongoDB
+
+### 🎨 UI & Icons
+
+* react-icons
+
+### 🎞️ Animation
+
+* lottie-react
+
+---
+
+## 📦 NPM Packages Used
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+next
+react
+react-dom
+tailwindcss
+daisyui
+react-icons
+lottie-react
+better-auth
+mongodb
+react-hook-form
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## 📁 Folder Structure (Simplified)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+app/
+ ├── (main)/
+ │    ├── page.jsx
+ │    ├── animals/
+ │    │    ├── page.jsx
+ │    │    ├── [id]/page.jsx
+ │
+ ├── (auth)/
+ │    ├── login/page.jsx
+ │    ├── register/page.jsx
+ │    ├── myprofile/page.jsx
+ │
+ ├── loading.js
+ ├── not-found.js
 
-## Learn More
+components/
+ ├── NavBar.jsx
+ ├── Footer.jsx
+```
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🚀 How to Run Locally
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+git clone https://github.com/your-username/qurbanihat.git
+cd qurbanihat
+npm install
+npm run dev
+```
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🔑 Environment Variables
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Create a `.env` file and add:
+
+```env
+MONGO_URI=your_mongodb_connection_string
+GOOGLE_CLIENT_ID=your_google_client_id
+GOOGLE_CLIENT_SECRET=your_google_client_secret
+```
+
+---
+
+## 📌 Future Improvements
+
+* Image upload system (Cloudinary)
+* Booking system with payment
+* Admin dashboard
+* Email verification
+
+---
+
+## 👨‍💻 Author
+
+Humayun Kabir
+
+---
+
+## 📄 License
+
+This project is for educational purposes.
