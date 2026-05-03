@@ -1,32 +1,35 @@
 'use client'
 import { authClient } from '@/lib/auth-client';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import React from 'react';
 import { useForm } from 'react-hook-form';
 
 const RegistarPage = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
+    const router = useRouter();
     const handleLOginFunc = async (data) => {
 
 
         const { email, name, photo, password } = data;
 
-        // console.log(email, name, photo, password);
 
-
-        const { data:res, error } = await authClient.signUp.email({
+        const { data: res, error } = await authClient.signUp.email({
             name: name, // required
             email: email, // required
             password: password, // required
             image: photo,
             callbackURL: "/",
         });
-        console.log("Database connect", res, error);
-        if(error){
+
+
+        if (error) {
             alert(error.message)
         }
-        if(res){
+        if (res) {
             alert("Registration Successful")
+            await authClient.signOut();
+            router.push("/login");
         }
     }
     return (

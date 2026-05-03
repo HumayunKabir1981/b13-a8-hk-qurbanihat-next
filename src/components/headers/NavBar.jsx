@@ -55,16 +55,16 @@ const NavBar = () => {
                 ) : user ? (
                     <div className='flex items-center gap-3'>
                         <h2 className='text-xl font-bold flex items-center'>Hello, {user.name}</h2>
-                        <Image src={user?.image || avater} height={50} width={50} alt='avater' className='rounded-full' />
+                        <Image src={user?.image && user.image.startsWith("http")
+                            ? user.image
+                            : avater} height={50} width={50} alt='avater' className='rounded-full' />
                         <Link href="/myprofile" className="text-xs btn btn-soft btn-primary">
                             My Profile
                         </Link>
                         <Link href="/">
                             <button className='btn btn-soft btn-primary' onClick={async () => await authClient.signOut()}>Logout</button>
                         </Link>
-                         
-                      
-                       
+
                     </div>
 
                 ) : (
