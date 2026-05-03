@@ -5,16 +5,15 @@ import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { FaEye } from "react-icons/fa";
 import { FaEyeLowVision } from "react-icons/fa6";
+import { FcGoogle } from "react-icons/fc";
 
 const LoginPage = () => {
 
     const [isShowPassword, setIsShowPassword] = useState(false)
 
     const { register, handleSubmit, formState: { errors } } = useForm();
+
     const handleLOginFunc = async (data) => {
-
-
-        // console.log(data);
 
         const { data: res, error } = await authClient.signIn.email({
             email: data.email, // required
@@ -22,20 +21,36 @@ const LoginPage = () => {
             rememberMe: true,
             callbackURL: "/",
         });
-        console.log(res, error);
+        if (error) {
+            alert(error.message || "Email or Password wrong ")
+            return;
+        }
     }
 
-    const handleGoogleSignin = async() => {
+    const handleGoogleSignin = async () => {
         const data = await authClient.signIn.social({
             provider: "google",
         });
     }
     return (
-        <div className='container mx-auto bg-slate-100 flex flex-col items-center justify-center h-[80vh]'>
+        <div className='container mx-auto bg-slate-100 flex flex-col gap-10 items-center justify-center '>
 
-            <div>
-                <h1 className='text-4xl font-extrabold text-green-900 py-10'>QurbaniHat</h1>
-                <button onClick={handleGoogleSignin} className='btn text-green-300'>Login with google</button>
+            <div className='flex flex-col gap-10 items-center justify-center  '>
+                <h1 className='text-4xl font-extrabold text-green-900 mt-5'>QurbaniHat</h1>
+                <button
+                    onClick={handleGoogleSignin}
+                    className='btn btn-primary w-full flex justify-between items-center px-4 h-14'
+                >
+                    
+                    <span className='bg-white p-2 rounded flex items-center justify-center text-xl'>
+                        <FcGoogle />
+                    </span>
+
+                    
+                    <span className='text-xl'>Login with Google</span>
+                </button>
+                <span className='text-2xl font-bold mt-5'>or</span>
+
             </div>
 
 
@@ -48,19 +63,23 @@ const LoginPage = () => {
                         <input type="email"
                             className="input"
                             name='email'
-                            {...register("email", { required: true })}
+                            {...register("email", { required: "Email is requered" })}
+
                             placeholder="Type here Email" />
+                        {errors.email && <p>{errors.email.message}</p>}
                     </fieldset>
 
                     <fieldset className="fieldset relative">
                         <legend className="fieldset-legend">Password</legend>
                         <input type={isShowPassword ? "text" : "password"}
                             className="input"
+
                             {...register("password", { required: "password is requered" })}
+
                             placeholder="Type here Password" />
+
                         <span className='absolute right-1 top-5 cursor-pointer' onClick={() => setIsShowPassword(!isShowPassword)}>
                             {isShowPassword ? <FaEye /> : <FaEyeLowVision />}
-
                         </span>
                         {errors.password && <p>{errors.password.message}</p>}
                     </fieldset>

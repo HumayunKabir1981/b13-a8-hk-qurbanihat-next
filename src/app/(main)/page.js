@@ -1,5 +1,5 @@
 import CowAnimation from "@/components/animations/CowAnimation";
-import GrassAnimation from "@/components/GrassAnimation";
+import GrassAnimation from "@/components/animations/GrassAnimation";
 import Image from "next/image";
 import Link from "next/link";
 import { FaBangladeshiTakaSign } from "react-icons/fa6";
@@ -60,13 +60,19 @@ export default async function Home() {
 
         <div className="col-span-1 ">
 
-          <div className="relative">
-            <CowAnimation></CowAnimation>
-            <div className=" w-30 h-20 absolute right-45 top-50 ">
-              <GrassAnimation></GrassAnimation>
+
+
+          <div className="relative flex flex-col items-center justify-center min-h-[300px] w-full max-w-md mx-auto">
+           
+            <CowAnimation  />
+
+            <div className="absolute bottom-5 w-50 h-20 flex justify-center pointer-events-none">
+              <GrassAnimation  />
             </div>
 
           </div>
+
+
 
 
 
