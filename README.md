@@ -125,6 +125,12 @@ app/
 components/
  ├── NavBar.jsx
  ├── Footer.jsx
+ ├── HeroBanner.jsx
+
+
+lib/
+ |--auth-client.js
+ |--auth.js
 ```
 
 ---
