@@ -1,5 +1,5 @@
- 
- import BookingForm from "@/components/BookingForm";
+
+import BookingForm from "@/components/BookingForm";
 import BookingSection from "@/components/BookingSection";
 import Image from "next/image";
 import { FaBangladeshiTakaSign } from "react-icons/fa6";
@@ -7,7 +7,7 @@ import { FaBangladeshiTakaSign } from "react-icons/fa6";
 export default async function AnimalDetailPage({ params }) {
   const { id } = await params;
 
-  const res = await fetch("http://localhost:3000/animals.json");
+  const res = await fetch("https://b13-a8-hk-qurbanihat-next-ulyn.vercel.app/animals.json");
   const animals = await res.json();
 
   const animal = animals.find(
@@ -25,7 +25,7 @@ export default async function AnimalDetailPage({ params }) {
     <div className="max-w-6xl mx-auto p-6">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10 bg-white shadow-lg rounded-2xl p-6">
 
-        
+
         <div className="flex items-center justify-center">
           <Image
             src={animal.image}
@@ -36,7 +36,7 @@ export default async function AnimalDetailPage({ params }) {
           />
         </div>
 
-        
+
         <div className="flex flex-col justify-center space-y-4">
 
           <h1 className="text-3xl font-bold text-gray-800">
@@ -90,7 +90,7 @@ export default async function AnimalDetailPage({ params }) {
 
           <BookingSection></BookingSection>
 
-         
+
 
         </div>
       </div>
