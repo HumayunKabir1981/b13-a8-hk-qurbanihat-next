@@ -8,8 +8,7 @@
 
 ## 🌐 Live URL
 
-👉 https://your-live-link.com](https://b13-a8-hk-qurbanihat-next-ulyn.vercel.app/
-
+👉 https://b13-a8-hk-qurbanihat-next-ulyn.vercel.app/
 ---
 
 ## 🎯 Purpose
