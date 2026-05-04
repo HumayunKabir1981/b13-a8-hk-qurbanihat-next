@@ -25,7 +25,7 @@ const AnimalsClient = ({ animals }) => {
   return (
     <div className="flex flex-col items-center">
 
-      {/* 🔍 Search */}
+
       <div className="flex gap-4 mb-6 items-center">
         <input
           type="number"
@@ -52,42 +52,49 @@ const AnimalsClient = ({ animals }) => {
       </div>
 
       {/* 🐄 Cards */}
+
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 place-items-center pb-10">
         {
-          filteredAnimals.map(animal => (
-            <div key={animal.id} className="card bg-base-100 shadow-sm w-72 flex flex-col">
+          filteredAnimals.length > 0 ? (
+            filteredAnimals.map(animal => (
+              <div key={animal.id} className="card bg-base-100 shadow-sm w-72 flex flex-col">
 
-              <figure className="px-10 pt-10">
-                <Image
-                  src={animal.image.trim()}
-                  alt="animal"
-                  height={200}
-                  width={250}
-                  className="rounded-xl h-48 w-full"
-                />
-              </figure>
+                <figure className="px-10 pt-10">
+                  <Image
+                    src={animal.image.trim()}
+                    alt="animal"
+                    height={200}
+                    width={250}
+                    className="rounded-xl h-48 w-full"
+                  />
+                </figure>
 
-              <div className="card-body flex flex-col flex-1 items-center text-center">
+                <div className="card-body flex flex-col flex-1 items-center text-center">
 
-                <div className="flex justify-between w-full">
-                  <div className="badge">{animal.type}</div>
-                  <div className="badge">
-                    <FaBangladeshiTakaSign />
-                    {animal.price}
+                  <div className="flex justify-between w-full">
+                    <div className="badge">{animal.type}</div>
+                    <div className="badge">
+                      <FaBangladeshiTakaSign />
+                      {animal.price}
+                    </div>
                   </div>
-                </div>
 
-                <div className="w-full">
-                  <Link href={`/animals/${animal.id}`}>
-                    <button className="btn btn-primary w-full">
-                      See Details
-                    </button>
-                  </Link>
-                </div>
+                  <div className="w-full">
+                    <Link href={`/animals/${animal.id}`}>
+                      <button className="btn btn-primary w-full">
+                        See Details
+                      </button>
+                    </Link>
+                  </div>
 
+                </div>
               </div>
-            </div>
-          ))
+            ))
+          ) : (
+            <p className="col-span-full text-red-500 text-xl font-semibold">
+              Data not found
+            </p>
+          )
         }
       </div>
 
