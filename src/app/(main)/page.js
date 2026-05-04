@@ -3,14 +3,11 @@ import GrassAnimation from "@/components/animations/GrassAnimation";
 import Image from "next/image";
 import Link from "next/link";
 import { FaBangladeshiTakaSign } from "react-icons/fa6";
-// import animals from "@/../public/animals.json";
 import animals from "@/../public/animals.json";
 
 
 export default  function Home() {
-  // const res = await fetch('http://localhost:3000/animals.json');
-  // const animals = await res.json();
-  return (
+    return (
     <div className="flex flex-col items-center justify-center container mx-auto bg-slate-200">
 
       <div className="text-center my-5 px-5">

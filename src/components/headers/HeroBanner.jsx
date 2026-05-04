@@ -4,14 +4,17 @@ import Image from 'next/image';
 
 const HeroBanner = () => {
     return (
-        <div className="relative w-full h-[200px] sm:h-[300px] md:h-[400px] lg:h-[500px]">
-            <Image
-                src={hero}
-                alt="banner"
-                fill
-                className="object-cover"
-                priority
-            />
+        <div className="w-full">
+            <div className="w-full">
+                <Image
+                    src={hero}
+                    alt="banner"
+                    className="w-full h-auto object-cover"
+                    priority
+                />
+            </div>
+
+
         </div>
     );
 };
