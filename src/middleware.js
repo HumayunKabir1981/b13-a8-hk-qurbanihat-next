@@ -1,8 +1,7 @@
 import { NextResponse } from "next/server";
 
-export function proxy(request) {
+export function middleware(request) {
   const { pathname } = request.nextUrl;
-
 
   if (
     pathname.startsWith("/api") ||
@@ -13,12 +12,10 @@ export function proxy(request) {
     return NextResponse.next();
   }
 
-  
   const token =
     request.cookies.get("better-auth.session_token")?.value ||
     request.cookies.get("session_token")?.value;
 
-  
   const isAnimalDetails =
     pathname.startsWith("/animals/") && pathname !== "/animals";
 
